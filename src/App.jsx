@@ -32,9 +32,10 @@ const App = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-[#B4D6CD]">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-[#4556ee]">
       {/* Container untuk menampilkan timer */}
-      <div className="flex flex-col justify-center h-[200px] w-[400px] p-8 bg-transparent border border-[#0B2F9F] rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <div className="flex flex-col justify-center h-[200px] w-[400px] p-8 bg-white/30 backdrop-blur-2xl border border-[#0B2F9F] rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      
         <div className="text-center mb-4 text-3xl">
           {/* Menampilkan waktu dalam format mm:ss:ms */}
           <span>{("0" + Math.floor((time / 60000) % 60)).slice(-2)}:</span>
@@ -42,9 +43,9 @@ const App = () => {
           <span>{("0" + ((time / 10) % 100)).slice(-2)}</span>
         </div>
         <div className="flex justify-center">
-          {/* Tombol Start, Stop, Resume, Reset, dan Save Time */}
+          {/* Tombol */}
           {!timerOn && time == 0 && (
-            <button onClick={() => setTimeOn(true)} className="bg-blue-600 py-2 px-5 rounded-lg text-white text-sm">
+            <button onClick={() => setTimeOn(true)} className="bg-blue-800 py-2 px-5 rounded-lg text-white text-sm">
               mulai
             </button>
           )}
@@ -70,11 +71,10 @@ const App = () => {
           )}
         </div>
       </div>
-
       {/* Tabel untuk menampilkan daftar waktu yang telah disimpan */}
       {timeList.length >= 0 && (
         <div className="mt-8 w-[400px]">
-          <table className="table-auto w-full border-collapse border border-[#0B2F9F]">
+          <table className="table-auto w-full border-collapse border bg-white/30 backdrop-blur-2xl border-[#0B2F9F]">
             <thead>
               <tr>
                 <th className="border border-[#0B2F9F] px-4 py-2">no</th>
@@ -105,6 +105,7 @@ const App = () => {
           </table>
         </div>
       )}
+      
     </div>
   );
 };
